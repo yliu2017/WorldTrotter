@@ -2,7 +2,7 @@
 //  ConversionViewController.swift
 //  WorldTrotter
 //
-//  Created by Tom Liu's Mac on 1/30/17.
+//  Created by Tom Liu's Mac on 1/29/17.
 //  Copyright © 2017 Tom Liu's Mac. All rights reserved.
 //
 
