@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53191F881E4A5653007E8D57 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53191F871E4A5653007E8D57 /* MapKit.framework */; };
 		537002941E3FDC0200995EE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537002931E3FDC0200995EE0 /* AppDelegate.swift */; };
 		537002991E3FDC0200995EE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537002971E3FDC0200995EE0 /* Main.storyboard */; };
 		5370029B1E3FDC0200995EE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5370029A1E3FDC0200995EE0 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53191F871E4A5653007E8D57 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		537002901E3FDC0200995EE0 /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		537002931E3FDC0200995EE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		537002981E3FDC0200995EE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -29,17 +31,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53191F881E4A5653007E8D57 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53191F861E4A5653007E8D57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53191F871E4A5653007E8D57 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		537002871E3FDC0100995EE0 = {
 			isa = PBXGroup;
 			children = (
 				537002921E3FDC0200995EE0 /* WorldTrotter */,
 				537002911E3FDC0200995EE0 /* Products */,
+				53191F861E4A5653007E8D57 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -299,6 +311,7 @@
 				537002A41E3FDC0200995EE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

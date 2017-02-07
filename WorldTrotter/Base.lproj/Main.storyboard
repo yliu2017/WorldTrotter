@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2Ah-yZ-JX4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Conversion View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ConversionViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,8 +81,10 @@
                             <outletCollection property="gestureRecognizers" destination="vpW-oS-QIa" appends="YES" id="9mG-Bl-4Gd"/>
                         </connections>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="6ar-Eb-fza"/>
                     <connections>
                         <outlet property="celsiusLable" destination="egG-vK-DmQ" id="hvh-2o-chs"/>
+                        <outlet property="textField" destination="EhO-Dk-RuL" id="eLl-xo-isy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -92,6 +94,38 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+        </scene>
+        <!--Item-->
+        <scene sceneID="BQd-uF-Nce">
+            <objects>
+                <viewController id="bOa-nL-seH" sceneMemberID="viewController">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="B8G-4i-CDo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </mapView>
+                    <tabBarItem key="tabBarItem" title="Item" id="vdZ-rY-Eme"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gc3-2O-XgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1724" y="124.58770614692655"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="4Mo-Ko-Hap">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2Ah-yZ-JX4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="OEv-fp-Jdy">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="bOa-nL-seH" kind="relationship" relationship="viewControllers" id="fYK-hU-Ve2"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ZYX-7c-WHn"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ecz-xz-Ufj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="784.79999999999995" y="124.58770614692655"/>
         </scene>
     </scenes>
 </document>

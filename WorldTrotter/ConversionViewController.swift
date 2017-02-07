@@ -44,10 +44,11 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
     }
     
     func updateCelsiusLabel() {
+        //need to add NSCharacterSet.decimalDigitCharacterSet()
         if let celsiusValue = celsiusValue {
             //celsiusLable.text = "\(celsiusValue.value)"
             celsiusLable.text =
-                numberFormatter.string(from: NSNumber(value: celsiusValue.value))
+                numberFormatter.string(from:  NSNumber (value: celsiusValue.value))
         }else {
             celsiusLable.text = "???"
         }
@@ -58,7 +59,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
         //to set the initial value
         updateCelsiusLabel()
     }
-   
+    
     //Number Formatters
     let  numberFormatter: NumberFormatter = {
         let nf = NumberFormatter()
@@ -70,16 +71,19 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
     
     //the UITextFieldDelegate protocol:
     /*protocol UITextFieldDelegate: NSObjectProtocol {
-        optional func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
-        optional func textFieldDidBeginEditing(_ textField: UITextField)
-        optional func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
-        optional func textFieldDidEndEditing(_ textField: UITextField)
-        optional func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
-                                replacementString string: String) -> Bool
-        optional func textFieldShouldClear(_ textField: UITextField) -> Bool
-        optional func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    }
-    */
+     optional func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
+     optional func textFieldDidBeginEditing(_ textField: UITextField)
+     optional func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
+     optional func textFieldDidEndEditing(_ textField: UITextField)
+     optional func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+     replacementString string: String) -> Bool
+     optional func textFieldShouldClear(_ textField: UITextField) -> Bool
+     optional func textFieldShouldReturn(_ textField: UITextField) -> Bool
+     }
+     */
+    
+   
+    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
@@ -88,16 +92,5 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
         
         return true
     }
-
+    
 }
-
-
-
-
-
-
-
-
-
-
-
