@@ -94,6 +94,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="254" y="94"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4Mo-Ko-Hap">
@@ -110,7 +111,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ecz-xz-Ufj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="784.79999999999995" y="124.58770614692655"/>
+            <point key="canvasLocation" x="1214" y="108"/>
         </scene>
     </scenes>
     <resources>
