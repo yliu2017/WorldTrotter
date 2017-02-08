@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Convert-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ConversionViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,7 +81,7 @@
                             <outletCollection property="gestureRecognizers" destination="vpW-oS-QIa" appends="YES" id="9mG-Bl-4Gd"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="6ar-Eb-fza"/>
+                    <tabBarItem key="tabBarItem" title="Convert" image="Convertion" id="6ar-Eb-fza"/>
                     <connections>
                         <outlet property="celsiusLable" destination="egG-vK-DmQ" id="hvh-2o-chs"/>
                         <outlet property="textField" destination="EhO-Dk-RuL" id="eLl-xo-isy"/>
@@ -95,20 +95,6 @@
                 </tapGestureRecognizer>
             </objects>
         </scene>
-        <!--Item-->
-        <scene sceneID="BQd-uF-Nce">
-            <objects>
-                <viewController id="bOa-nL-seH" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="B8G-4i-CDo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </mapView>
-                    <tabBarItem key="tabBarItem" title="Item" id="vdZ-rY-Eme"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gc3-2O-XgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1724" y="124.58770614692655"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4Mo-Ko-Hap">
             <objects>
@@ -119,7 +105,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="bOa-nL-seH" kind="relationship" relationship="viewControllers" id="fYK-hU-Ve2"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ZYX-7c-WHn"/>
                     </connections>
                 </tabBarController>
@@ -128,4 +113,7 @@
             <point key="canvasLocation" x="784.79999999999995" y="124.58770614692655"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Convertion" width="48" height="32"/>
+    </resources>
 </document>

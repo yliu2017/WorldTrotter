@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		53191F881E4A5653007E8D57 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53191F871E4A5653007E8D57 /* MapKit.framework */; };
+		53191F8A1E4B4D1B007E8D57 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53191F891E4B4D1B007E8D57 /* MapViewController.swift */; };
 		537002941E3FDC0200995EE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537002931E3FDC0200995EE0 /* AppDelegate.swift */; };
 		537002991E3FDC0200995EE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537002971E3FDC0200995EE0 /* Main.storyboard */; };
 		5370029B1E3FDC0200995EE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5370029A1E3FDC0200995EE0 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		53191F871E4A5653007E8D57 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		53191F891E4B4D1B007E8D57 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		537002901E3FDC0200995EE0 /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		537002931E3FDC0200995EE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		537002981E3FDC0200995EE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				5370029A1E3FDC0200995EE0 /* Assets.xcassets */,
 				5370029C1E3FDC0200995EE0 /* LaunchScreen.storyboard */,
 				5370029F1E3FDC0200995EE0 /* Info.plist */,
+				53191F891E4B4D1B007E8D57 /* MapViewController.swift */,
 			);
 			path = WorldTrotter;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				537002A61E402BE600995EE0 /* ConversionViewController.swift in Sources */,
+				53191F8A1E4B4D1B007E8D57 /* MapViewController.swift in Sources */,
 				537002941E3FDC0200995EE0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
