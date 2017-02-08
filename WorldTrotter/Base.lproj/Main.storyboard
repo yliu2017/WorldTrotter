@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fJy-Je-azq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -99,7 +99,7 @@
         <!--Web-->
         <scene sceneID="Aid-5V-O6M">
             <objects>
-                <viewController storyboardIdentifier="Web" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rRM-DA-P2p" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Web" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rRM-DA-P2p" customClass="webViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fk6-Yk-OLK"/>
                         <viewControllerLayoutGuide type="bottom" id="wy7-uW-yf9"/>

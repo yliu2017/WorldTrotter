@@ -14,6 +14,7 @@
 		5370029B1E3FDC0200995EE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5370029A1E3FDC0200995EE0 /* Assets.xcassets */; };
 		5370029E1E3FDC0200995EE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5370029C1E3FDC0200995EE0 /* LaunchScreen.storyboard */; };
 		537002A61E402BE600995EE0 /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537002A51E402BE600995EE0 /* ConversionViewController.swift */; };
+		53F96B4F1E4B99E40053621B /* WebViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F96B4E1E4B99E40053621B /* WebViewConroller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		5370029D1E3FDC0200995EE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5370029F1E3FDC0200995EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		537002A51E402BE600995EE0 /* ConversionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionViewController.swift; sourceTree = "<group>"; };
+		53F96B4E1E4B99E40053621B /* WebViewConroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewConroller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				5370029C1E3FDC0200995EE0 /* LaunchScreen.storyboard */,
 				5370029F1E3FDC0200995EE0 /* Info.plist */,
 				53191F891E4B4D1B007E8D57 /* MapViewController.swift */,
+				53F96B4E1E4B99E40053621B /* WebViewConroller.swift */,
 			);
 			path = WorldTrotter;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			files = (
 				537002A61E402BE600995EE0 /* ConversionViewController.swift in Sources */,
 				53191F8A1E4B4D1B007E8D57 /* MapViewController.swift in Sources */,
+				53F96B4F1E4B99E40053621B /* WebViewConroller.swift in Sources */,
 				537002941E3FDC0200995EE0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

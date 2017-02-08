@@ -9,9 +9,10 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     var mapView: MKMapView!
+    var locationManager = CLLocationManager()
     
     override func loadView() {
         //create a map view through programming
@@ -45,11 +46,34 @@ class MapViewController: UIViewController {
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
         
+        //Where to put this code?
+        self.mapView.delegate = self   //in delegate
+        mapView.delegate = self
+        
+    }
+    
+    
+    //self.mapView.userLocation(sender: click(hybrid))
+    //mpView.showUserLocation = true
+    
+    
+    func mapViewWillStartLocatingUser(_ mapView: MKMapView) {
+        print("Start locating")
+    }
+    
+    func mapViewDidStopLocatingUser(_ mapView: MKMapView) {
+        print("Stop Locating")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MapViewController loaded its view")
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
         
     }
     
@@ -66,7 +90,9 @@ class MapViewController: UIViewController {
             break
         }
     }
+    
 
+    
     
     
 }
