@@ -84,8 +84,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             mapView.mapType = .standard
         case 1:
             mapView.mapType = .hybrid
+            mapView.showsUserLocation = true
         case 2:
             mapView.mapType = .satellite
+            mapView.showsUserLocation = false
         default:
             break
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fJy-Je-azq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2Ah-yZ-JX4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -99,23 +99,12 @@
         <!--Web-->
         <scene sceneID="Aid-5V-O6M">
             <objects>
-                <viewController storyboardIdentifier="Web" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rRM-DA-P2p" customClass="webViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fk6-Yk-OLK"/>
-                        <viewControllerLayoutGuide type="bottom" id="wy7-uW-yf9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hv4-Vw-ekY">
+                <viewController storyboardIdentifier="Web" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rRM-DA-P2p" customClass="WebViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="IsQ-NN-Lzk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TII-Uc-MWC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </webView>
                     <tabBarItem key="tabBarItem" title="Web" id="DqD-Cu-LBu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G44-ed-3Z1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -146,21 +135,10 @@
         <scene sceneID="edl-DX-7Ib">
             <objects>
                 <viewController storyboardIdentifier="Map" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fJy-Je-azq" customClass="MapViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="skk-6h-H5k"/>
-                        <viewControllerLayoutGuide type="bottom" id="zyB-cY-5Es"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Awn-8K-SYA">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="XSp-nm-Mte">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ggV-Kl-OcY">
-                                <rect key="frame" x="-19" y="0.0" width="394" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </mapView>
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="JbI-za-ZET"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xsN-2a-jva" userLabel="First Responder" sceneMemberID="firstResponder"/>
