@@ -7,6 +7,9 @@
 //
 
 import UIKit
+//let characterSet = NSMutableCharacterSet.decimalDigits
+
+
 
 class ConversionViewController: UIViewController, UITextFieldDelegate
 {
@@ -54,6 +57,22 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
         }
     }
     
+    //Chapter 5 Silver Challenge
+    override func viewWillAppear(_ animated: Bool)
+    {
+        let date = Date()
+        let calendar = NSCalendar.current
+        let hour = calendar.component(.hour, from: date)
+        
+        if hour > 7 && hour < 19
+        {
+            self.view.backgroundColor = UIColor.init(red: 245, green: 244, blue: 241, alpha: 1.0) //warmGrey
+        }
+        else
+        {
+            self.view.backgroundColor = UIColor.darkGray
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ConversionViewController loaded its view")
@@ -85,13 +104,22 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
     
    
     
-    
+    //Chapter 4 Bronze challange
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
-        print("Current text: \(textField.text)")
-        print("Replacement text: \(string)")
+        let characters = NSCharacterSet.decimalDigits
+        let decimal = "."
+        let characterAdded = CharacterSet.init(charactersIn: string)
         
-        return true
+        if characters.isSuperset(of: characterAdded){
+            return true
+        }
+        else if decimal.contains(string){
+            return true
+        }
+        else{
+            return false
+        }
     }
     
 }
