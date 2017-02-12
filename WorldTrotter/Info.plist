@@ -28,6 +28,10 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSLocationUsageDescription</key>
+	<string></string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
