@@ -29,7 +29,9 @@
 		<string>armv7</string>
 	</array>
 	<key>NSLocationUsageDescription</key>
-	<string></string>
+	<string>Localiation</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Centered</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>UISupportedInterfaceOrientations</key>

@@ -63,10 +63,14 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
         let date = Date()
         let calendar = NSCalendar.current
         let hour = calendar.component(.hour, from: date)
+        let second = calendar.component(.second, from: date)
+        
+        print("hour:  " + "\(hour)" +  "    second: " + "\(second)")
+        let num: Int = hour * 5 / 256
         
         if hour > 7 && hour < 19
         {
-            self.view.backgroundColor = UIColor.init(red: 245, green: 244, blue: 241, alpha: 1.0) //warmGrey
+            self.view.backgroundColor = UIColor.init(red: CGFloat(num)+CGFloat(second), green: (244-CGFloat(second))/256, blue: 238/256, alpha: 1.0) //light grey
         }
         else
         {
@@ -107,10 +111,27 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
     //Chapter 4 Bronze challange
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
-        let characters = NSCharacterSet.decimalDigits
+      /*  let characters = NSCharacterSet.decimalDigits
         let decimal = "."
         let characterAdded = CharacterSet.init(charactersIn: string)
+      */
+
+        let currentLocale = Locale.current
+        let decimalSeparator = currentLocale.decimalSeparator ?? "."
         
+        let existingTextHasDecimalSeparator
+            = textField.text?.range(of: decimalSeparator)
+        let replacementTextHAsDecimalSepector = string.range(of: decimalSeparator)
+        
+        if existingTextHasDecimalSeparator != nil,
+            replacementTextHAsDecimalSepector != nil
+        {
+            return false
+        }else{
+            return true
+        }
+        
+     /*
         if characters.isSuperset(of: characterAdded){
             return true
         }
@@ -119,7 +140,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
         }
         else{
             return false
-        }
+        }*/
     }
     
 }

@@ -63,26 +63,60 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     //initialize the my location Button
     func initLocalizationButton(_ anyView: UIView!){
-        let localizationButton = UIButton.init(type: .system)
-        localizationButton.setTitle("My Locationn", for: .normal)
+        let localizationButton = UIButton.init(type: .roundedRect)
+        localizationButton.backgroundColor
+            = UIColor.white.withAlphaComponent(0.5)
+        localizationButton.setTitle("My Location", for: .normal)
         localizationButton.translatesAutoresizingMaskIntoConstraints = false
+        localizationButton.frame.size = CGSize(150,50)
         view.addSubview(localizationButton)
         
         //Constraints
         
         let topConstraint = localizationButton.topAnchor.constraint(equalTo:anyView
             .topAnchor, constant: 32 )
+
+        //let leftConstraint = localizationButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8)
         let leadingConstraint = localizationButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor)
         let trailingConstraint = localizationButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         
         topConstraint.isActive = true
+        //leftConstraint.isActive = true
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
         
+        
         localizationButton.addTarget(self, action: #selector(MapViewController.showLocalization(sender:)), for: .touchUpInside)
+        //localizationButton.addTarget(self, action: #selector(MKCoordinateSpanMake(0.075, 0.075)), for: .touchDownRepeat)
         
         
     }
+    
+    func initPinsButton(_ anyView: UIView!){
+        let initPinsButton = UIButton.init(type: .roundedRect)
+        initPinsButton.backgroundColor
+            = UIColor.white.withAlphaComponent(0.5)
+        initPinsButton.setTitle("Pins", for: .normal)
+        initPinsButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(initPinsButton)
+        
+        //Constraints
+        
+        let topConstraint = initPinsButton.topAnchor.constraint(equalTo:anyView
+            .topAnchor, constant: 32 )
+        //let leftConstraint = localizationButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8)
+        let leadingConstraint = initPinsButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor)
+        let trailingConstraint = initPinsButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
+        
+        topConstraint.isActive = true
+        //leftConstraint.isActive = true
+        leadingConstraint.isActive = true
+        trailingConstraint.isActive = true
+        
+        //initPinsButton.addTarget(self, action: #selector(MapViewController.showLocalization(sender:)), for: .touchUpInside)
+        
+    }
+    
     func showLocalization(sender: UIButton!){
         locationManager.requestWhenInUseAuthorization()//se agrega permiso en info.plist
         mapView.showsUserLocation = true //fire up the method mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation)
