@@ -24,6 +24,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.delegate = self
         locationManager = CLLocationManager()
         
+        
         let segmentedControl
             = UISegmentedControl(items: ["Standard","Hybrid","Satellite"])
         segmentedControl.backgroundColor
@@ -33,9 +34,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         
+        //load segementControl
         view.addSubview(segmentedControl)
         
+        //load location button
         initLocalizationButton(segmentedControl)
+        //load pin button
+        initPinsButton(segmentedControl)
+        
         
         //Page 109 Anchors
         //each anchor of segmented control should be equal to its anchor of subview
@@ -68,20 +74,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             = UIColor.white.withAlphaComponent(0.5)
         localizationButton.setTitle("My Location", for: .normal)
         localizationButton.translatesAutoresizingMaskIntoConstraints = false
-        localizationButton.frame.size = CGSize(150,50)
+        localizationButton.frame.size.width = 150
+        localizationButton.frame.size.height = 50
         view.addSubview(localizationButton)
         
         //Constraints
         
-        let topConstraint = localizationButton.topAnchor.constraint(equalTo:anyView
-            .topAnchor, constant: 32 )
+        let bottomConstraint = localizationButton.topAnchor.constraint(equalTo:anyView
+            .bottomAnchor, constant: 32 )
 
-        //let leftConstraint = localizationButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8)
+        let leftConstraint = localizationButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8)
         let leadingConstraint = localizationButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor)
         let trailingConstraint = localizationButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         
-        topConstraint.isActive = true
-        //leftConstraint.isActive = true
+        bottomConstraint.isActive = true
+        leftConstraint.isActive = true
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
         
@@ -102,14 +109,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         //Constraints
         
-        let topConstraint = initPinsButton.topAnchor.constraint(equalTo:anyView
-            .topAnchor, constant: 32 )
-        //let leftConstraint = localizationButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8)
+        let bottomConstraint = initPinsButton.bottomAnchor.constraint(equalTo:anyView
+            .bottomAnchor, constant: 32 )
+        let rightConstraint = initPinsButton.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 8)
         let leadingConstraint = initPinsButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor)
         let trailingConstraint = initPinsButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         
-        topConstraint.isActive = true
-        //leftConstraint.isActive = true
+        bottomConstraint.isActive = true
+        rightConstraint.isActive = true
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
         
