@@ -33,8 +33,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
     @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField)
     {
         //celsiusLable.text = textField.text
-        if let text = textField.text, let value = Double(text)        {
-            fahrenheitValue = Measurement(value: value, unit: .fahrenheit)
+        if let text = textField.text, let number = numberFormatter.number(from: text)      {
+            fahrenheitValue = Measurement(value: number.doubleValue, unit: .fahrenheit)
         }else
         {
             fahrenheitValue = nil
@@ -66,15 +66,14 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
         let second = calendar.component(.second, from: date)
         
         print("hour:  " + "\(hour)" +  "    second: " + "\(second)")
-        let num: Int = hour * 5 / 256
         
         if hour > 7 && hour < 19
         {
-            self.view.backgroundColor = UIColor.init(red: 78/256, green: (244-CGFloat(second))/256, blue: CGFloat(num)+CGFloat(second), alpha: 1.0) //light grey
+            self.view.backgroundColor = UIColor.init(red: (100+CGFloat(second)*2)/256, green: (240-CGFloat(second)*2)/256/256, blue: 250/256, alpha: 1.0) //light grey
         }
         else
         {
-            self.view.backgroundColor = UIColor.darkGray
+            self.view.backgroundColor = UIColor.init(red: (170-CGFloat(second))/256, green: (170-CGFloat(second))/256, blue: (170-CGFloat(second))/256, alpha: 1.0) //grey color
         }
     }
     override func viewDidLoad() {
@@ -92,20 +91,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
         nf.maximumFractionDigits = 1
         return nf
     }()
-    
-    //the UITextFieldDelegate protocol:
-    /*protocol UITextFieldDelegate: NSObjectProtocol {
-     optional func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
-     optional func textFieldDidBeginEditing(_ textField: UITextField)
-     optional func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
-     optional func textFieldDidEndEditing(_ textField: UITextField)
-     optional func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
-     replacementString string: String) -> Bool
-     optional func textFieldShouldClear(_ textField: UITextField) -> Bool
-     optional func textFieldShouldReturn(_ textField: UITextField) -> Bool
-     }
-     */
-    
+
    
     
     //Chapter 4 Bronze challange

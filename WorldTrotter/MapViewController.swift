@@ -14,20 +14,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var mapView: MKMapView!
     var locationManager = CLLocationManager()
     
-    //default loc 
+    //default loc and defalut region
     func goDefaultLocation()
     {
         
         let defaultSpan = MKCoordinateSpanMake(60.0,60.0)
-        let defaultLoc = CLLocationCoordinate2DMake(38,-101)
+        let defaultLoc = CLLocationCoordinate2DMake(39,-100)
         let defaultRegion = MKCoordinateRegionMake(defaultLoc, defaultSpan)
         mapView.setCenter(defaultLoc, animated: true)
         mapView.setRegion(defaultRegion, animated: true)
     }
     
-    let span = MKCoordinateSpanMake(0.001,0.001)
-   // defaultSpan.init(0.2,0.2)
-   // defaultLoc.init(center: CLLocationCoordinate2D.init(38,75), span: MKCoordinteSpan.init(0.2,0.2))
+    let span = MKCoordinateSpanMake(0.002,0.002)  //default span for pin
+   
     
     override func loadView() {
         //create a map view through programming
@@ -75,12 +74,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let pin0 = MKPointAnnotation()
         let pin1 = MKPointAnnotation()
         let pin2 = MKPointAnnotation()
-        pin0.coordinate = CLLocationCoordinate2DMake(35.986636, -80.003877)  // pin to my home
-        pin1.coordinate = CLLocationCoordinate2DMake(40.758765, -73.985152)  // pin to time square
+        pin0.coordinate = CLLocationCoordinate2DMake(39.916553,116.252220)  // pin to my born place
+        pin1.coordinate = CLLocationCoordinate2DMake(35.986636, -80.003877)  // pin to my dorm
         pin2.coordinate = CLLocationCoordinate2DMake(38.897641, -77.036549)  // pin to white house
-        pin0.title = "My home"
-        pin1.title = "Time Square"
-        pin2.title = "White House"
+        pin0.title = "HangTian Hospital,HaiDian,Beijing,China"
+        pin1.title = "North College Terrace,High Point,NC"
+        pin2.title = "White House,DC"
         mapView.addAnnotation(pin0)
         mapView.addAnnotation(pin1)
         mapView.addAnnotation(pin2)
@@ -144,12 +143,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         trailingConstraint.isActive = true
         
         pinsButton.addTarget(self, action: #selector(MapViewController.showPins(sender:)), for: .touchUpInside)
-        
-        
-        //pin has a index
-        
-        
-        
+
         
     }
     
@@ -175,13 +169,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let pin0 = MKPointAnnotation()
         let pin1 = MKPointAnnotation()
         let pin2 = MKPointAnnotation()
-        pin0.coordinate = CLLocationCoordinate2DMake(35.986636, -80.003877)  // pin to my home
-        pin1.coordinate = CLLocationCoordinate2DMake(40.758765, -73.985152)  // pin to time square
+        pin0.coordinate = CLLocationCoordinate2DMake(39.916553,116.252220)  // pin to my born place
+        pin1.coordinate = CLLocationCoordinate2DMake(35.986636, -80.003877)  // pin to my dorm
         pin2.coordinate = CLLocationCoordinate2DMake(38.897641, -77.036549)  // pin to white house
-        pin0.title = "North College Terrace"
-        pin1.title = "Time Square"
-        pin2.title = "White House"
-        
+        pin0.title = "HangTian Hospital,HaiDian,Beijing,China"
+        pin1.title = "North College Terrace,High Point,NC"
+        pin2.title = "White House,DC"
         //my pin function process the pinindex and showsuserLocation to determin what to set the current location
         pinindex = (pinindex + 1) % 4 //cycle throught 0-4
         locButtonClickIndex = 0
