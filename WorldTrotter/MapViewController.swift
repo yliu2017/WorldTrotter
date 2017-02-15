@@ -13,13 +13,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     var mapView: MKMapView!
     var locationManager = CLLocationManager()
+    var defaultSpan = MKCoordinateSpanMake(60.0,60.0)
+    var defaultLoc = CLLocationCoordinate2DMake(39,-100)
     
     //default loc and defalut region
     func goDefaultLocation()
     {
         
-        let defaultSpan = MKCoordinateSpanMake(60.0,60.0)
-        let defaultLoc = CLLocationCoordinate2DMake(39,-100)
         let defaultRegion = MKCoordinateRegionMake(defaultLoc, defaultSpan)
         mapView.setCenter(defaultLoc, animated: true)
         mapView.setRegion(defaultRegion, animated: true)
@@ -243,7 +243,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        defaultSpan = mapView.region.span
+        defaultLoc = mapView.region.center
+        print("Center Changed, Span Changed. Default Setting Saved.")
+    }
     
     
     
