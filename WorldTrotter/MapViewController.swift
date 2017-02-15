@@ -15,7 +15,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var locationManager = CLLocationManager()
     
     //default loc 
-    let defaultSpan = MKCoordinateSpanMake(5,5)
+    let defaultSpan = MKCoordinateSpanMake(0.005,0.005)
     //var defaultLocation = MKPointAnnotation()
     //defaultLocation.coordinate = CLLocationCoordinate2DMake(38.0, -70.0)
     //let defaultRegion = MKCoordinateRegionMake(defaultLoc.coordinate, defaultSpan)
