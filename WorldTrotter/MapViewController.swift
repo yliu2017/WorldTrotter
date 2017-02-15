@@ -14,6 +14,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var mapView: MKMapView!
     var locationManager = CLLocationManager()
     
+    //default loc 
+    let defaultSpan = MKCoordinateSpanMake(5,5)
+    //var defaultLocation = MKPointAnnotation()
+    //defaultLocation.coordinate = CLLocationCoordinate2DMake(38.0, -70.0)
+    //let defaultRegion = MKCoordinateRegionMake(defaultLoc.coordinate, defaultSpan)
+    let span = MKCoordinateSpanMake(0.075, 0.075)
+   // defaultSpan.init(0.2,0.2)
+   // defaultLoc.init(center: CLLocationCoordinate2D.init(38,75), span: MKCoordinteSpan.init(0.2,0.2))
+    
     override func loadView() {
         //create a map view through programming
         mapView = MKMapView()
@@ -22,8 +31,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         view = mapView
         //add delegate for silver challenge2w
         mapView.delegate = self
-        locationManager = CLLocationManager()
-        
         
         let segmentedControl
             = UISegmentedControl(items: ["Standard","Hybrid","Satellite"])
@@ -57,9 +64,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
         
-        //Where to put this code?
-        self.mapView.delegate = self   //in delegate
-        mapView.delegate = self
+        
+        //load pins
+        let pin0 = MKPointAnnotation()
+        let pin1 = MKPointAnnotation()
+        let pin2 = MKPointAnnotation()
+        pin0.coordinate = CLLocationCoordinate2DMake(35.986946, -80.033742)  // pin to my home
+        pin1.coordinate = CLLocationCoordinate2DMake(40.758765, -73.985152)  // pin to time square
+        pin2.coordinate = CLLocationCoordinate2DMake(38.897641, -77.036549)  // pin to white house
+        pin0.title = "My home"
+        pin1.title = "Time Square"
+        pin2.title = "White House"
+        mapView.addAnnotation(pin0)
+        mapView.addAnnotation(pin1)
+        mapView.addAnnotation(pin2)
+
         
     }
     
@@ -76,57 +95,112 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         localizationButton.translatesAutoresizingMaskIntoConstraints = false
         localizationButton.frame.size.width = 150
         localizationButton.frame.size.height = 50
+        localizationButton.layer.borderWidth = 1
+        localizationButton.layer.cornerRadius = 5
+        
         view.addSubview(localizationButton)
         
         //Constraints
         
-        let bottomConstraint = localizationButton.topAnchor.constraint(equalTo:anyView
-            .bottomAnchor, constant: 32 )
-
-        let leftConstraint = localizationButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8)
+        let bottomConstraint = localizationButton.bottomAnchor.constraint(equalTo:bottomLayoutGuide.topAnchor)
+        //let leftConstraint = localizationButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8)
         let leadingConstraint = localizationButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor)
-        let trailingConstraint = localizationButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         
         bottomConstraint.isActive = true
-        leftConstraint.isActive = true
         leadingConstraint.isActive = true
-        trailingConstraint.isActive = true
+        //trailingConstraint.isActive = true
         
         
         localizationButton.addTarget(self, action: #selector(MapViewController.showLocalization(sender:)), for: .touchUpInside)
-        //localizationButton.addTarget(self, action: #selector(MKCoordinateSpanMake(0.075, 0.075)), for: .touchDownRepeat)
+        localizationButton.addTarget(self, action: #selector(MapViewController.showLocalization(sender:)), for: .touchDownRepeat)
         
         
     }
     
     func initPinsButton(_ anyView: UIView!){
-        let initPinsButton = UIButton.init(type: .roundedRect)
-        initPinsButton.backgroundColor
+        let pinsButton = UIButton.init(type: .roundedRect)
+        pinsButton.backgroundColor
             = UIColor.white.withAlphaComponent(0.5)
-        initPinsButton.setTitle("Pins", for: .normal)
-        initPinsButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(initPinsButton)
+        pinsButton.setTitle("Pins", for: .normal)
+        pinsButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(pinsButton)
+        pinsButton.frame.size.width = 150
+        pinsButton.frame.size.height = 50
+        pinsButton.layer.borderWidth = 1
+        pinsButton.layer.cornerRadius = 5
         
         //Constraints
         
-        let bottomConstraint = initPinsButton.bottomAnchor.constraint(equalTo:anyView
-            .bottomAnchor, constant: 32 )
-        let rightConstraint = initPinsButton.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 8)
-        let leadingConstraint = initPinsButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor)
-        let trailingConstraint = initPinsButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
+        let bottomConstraint = pinsButton.bottomAnchor.constraint(equalTo:bottomLayoutGuide.topAnchor)
+        let trailingConstraint = pinsButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         
         bottomConstraint.isActive = true
-        rightConstraint.isActive = true
-        leadingConstraint.isActive = true
         trailingConstraint.isActive = true
         
-        //initPinsButton.addTarget(self, action: #selector(MapViewController.showLocalization(sender:)), for: .touchUpInside)
+        pinsButton.addTarget(self, action: #selector(MapViewController.showPins(sender:)), for: .touchUpInside)
+        
+        
+        //pin has a index
+        
+        
+        
         
     }
     
+    var locButtonClickIndex:Int = 0;
     func showLocalization(sender: UIButton!){
-        locationManager.requestWhenInUseAuthorization()//se agrega permiso en info.plist
-        mapView.showsUserLocation = true //fire up the method mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation)
+        locButtonClickIndex = locButtonClickIndex % 2
+        locationManager.requestWhenInUseAuthorization()// info.plist
+        if locButtonClickIndex % 2 == 0{
+            mapView.showsUserLocation = true //fire up the method mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation)
+        }
+        else{
+            mapView.showsUserLocation = false
+            //show default view
+            //mapView.setRegion(defaultRegion, animated: true)
+            
+        }
+        print("loc click index = " + "\(locButtonClickIndex)")
+        locButtonClickIndex += 1
+        
+    }
+    var pinindex: Int = 0
+    func showPins(sender: UIButton!){
+        
+        let pin0 = MKPointAnnotation()
+        let pin1 = MKPointAnnotation()
+        let pin2 = MKPointAnnotation()
+        pin0.coordinate = CLLocationCoordinate2DMake(35.986946, -80.033742)  // pin to my home
+        pin1.coordinate = CLLocationCoordinate2DMake(40.758765, -73.985152)  // pin to time square
+        pin2.coordinate = CLLocationCoordinate2DMake(38.897641, -77.036549)  // pin to white house
+        pin0.title = "My home"
+        pin1.title = "Time Square"
+        pin2.title = "White House"
+        mapView.addAnnotation(pin0)
+        mapView.addAnnotation(pin1)
+        mapView.addAnnotation(pin2)
+        
+        //my pin function process the pinindex and showsuserLocation to determin what to set the current location
+        pinindex = (pinindex + 1) % 4 //cycle throught 0-4
+        locButtonClickIndex = 0
+        if pinindex == 0{
+            let thisRegion = MKCoordinateRegionMake(pin0.coordinate, span)
+            mapView.setCenter(pin0.coordinate, animated: true)
+            mapView.setRegion(thisRegion, animated: true)
+        }
+        else if pinindex == 1{
+            let thisRegion = MKCoordinateRegionMake(pin1.coordinate, span)
+            mapView.setCenter(pin1.coordinate, animated: true)
+            mapView.setRegion(thisRegion, animated: true)
+        }
+        else if pinindex == 2{
+            let thisRegion = MKCoordinateRegionMake(pin2.coordinate, span)
+            mapView.setCenter(pin2.coordinate, animated: true)
+            mapView.setRegion(thisRegion, animated: true)
+        }
+        else{
+            
+        }
         
         
     }
@@ -152,7 +226,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         

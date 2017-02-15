@@ -70,7 +70,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate
         
         if hour > 7 && hour < 19
         {
-            self.view.backgroundColor = UIColor.init(red: CGFloat(num)+CGFloat(second), green: (244-CGFloat(second))/256, blue: 238/256, alpha: 1.0) //light grey
+            self.view.backgroundColor = UIColor.init(red: 78/256, green: (244-CGFloat(second))/256, blue: CGFloat(num)+CGFloat(second), alpha: 1.0) //light grey
         }
         else
         {
