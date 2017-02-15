@@ -15,11 +15,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var locationManager = CLLocationManager()
     
     //default loc 
-    let defaultSpan = MKCoordinateSpanMake(0.005,0.005)
-    //var defaultLocation = MKPointAnnotation()
-    //defaultLocation.coordinate = CLLocationCoordinate2DMake(38.0, -70.0)
-    //let defaultRegion = MKCoordinateRegionMake(defaultLoc.coordinate, defaultSpan)
-    let span = MKCoordinateSpanMake(0.075, 0.075)
+    func goDefaultLocation()
+    {
+        
+        let defaultSpan = MKCoordinateSpanMake(60.0,60.0)
+        let defaultLoc = CLLocationCoordinate2DMake(38,-101)
+        let defaultRegion = MKCoordinateRegionMake(defaultLoc, defaultSpan)
+        mapView.setCenter(defaultLoc, animated: true)
+        mapView.setRegion(defaultRegion, animated: true)
+    }
+    
+    let span = MKCoordinateSpanMake(0.001,0.001)
    // defaultSpan.init(0.2,0.2)
    // defaultLoc.init(center: CLLocationCoordinate2D.init(38,75), span: MKCoordinteSpan.init(0.2,0.2))
     
@@ -69,7 +75,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let pin0 = MKPointAnnotation()
         let pin1 = MKPointAnnotation()
         let pin2 = MKPointAnnotation()
-        pin0.coordinate = CLLocationCoordinate2DMake(35.986946, -80.033742)  // pin to my home
+        pin0.coordinate = CLLocationCoordinate2DMake(35.986636, -80.003877)  // pin to my home
         pin1.coordinate = CLLocationCoordinate2DMake(40.758765, -73.985152)  // pin to time square
         pin2.coordinate = CLLocationCoordinate2DMake(38.897641, -77.036549)  // pin to white house
         pin0.title = "My home"
@@ -91,24 +97,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let localizationButton = UIButton.init(type: .roundedRect)
         localizationButton.backgroundColor
             = UIColor.white.withAlphaComponent(0.5)
-        localizationButton.setTitle("My Location", for: .normal)
+        localizationButton.setTitle("Locate Me", for: .normal)
         localizationButton.translatesAutoresizingMaskIntoConstraints = false
         localizationButton.frame.size.width = 150
         localizationButton.frame.size.height = 50
         localizationButton.layer.borderWidth = 1
         localizationButton.layer.cornerRadius = 5
+        localizationButton.layer.borderColor = UIColor.blue.cgColor
         
         view.addSubview(localizationButton)
         
         //Constraints
         
-        let bottomConstraint = localizationButton.bottomAnchor.constraint(equalTo:bottomLayoutGuide.topAnchor)
-        //let leftConstraint = localizationButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8)
+        let bottomConstraint = localizationButton.bottomAnchor.constraint(equalTo:bottomLayoutGuide.topAnchor, constant: -8)
         let leadingConstraint = localizationButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor)
         
         bottomConstraint.isActive = true
         leadingConstraint.isActive = true
-        //trailingConstraint.isActive = true
         
         
         localizationButton.addTarget(self, action: #selector(MapViewController.showLocalization(sender:)), for: .touchUpInside)
@@ -128,10 +133,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         pinsButton.frame.size.height = 50
         pinsButton.layer.borderWidth = 1
         pinsButton.layer.cornerRadius = 5
+        pinsButton.layer.borderColor = UIColor.blue.cgColor
         
         //Constraints
         
-        let bottomConstraint = pinsButton.bottomAnchor.constraint(equalTo:bottomLayoutGuide.topAnchor)
+        let bottomConstraint = pinsButton.bottomAnchor.constraint(equalTo:bottomLayoutGuide.topAnchor, constant: -8)
         let trailingConstraint = pinsButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         
         bottomConstraint.isActive = true
@@ -156,8 +162,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         else{
             mapView.showsUserLocation = false
-            //show default view
-            //mapView.setRegion(defaultRegion, animated: true)
+            goDefaultLocation()
             
         }
         print("loc click index = " + "\(locButtonClickIndex)")
@@ -170,36 +175,33 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let pin0 = MKPointAnnotation()
         let pin1 = MKPointAnnotation()
         let pin2 = MKPointAnnotation()
-        pin0.coordinate = CLLocationCoordinate2DMake(35.986946, -80.033742)  // pin to my home
+        pin0.coordinate = CLLocationCoordinate2DMake(35.986636, -80.003877)  // pin to my home
         pin1.coordinate = CLLocationCoordinate2DMake(40.758765, -73.985152)  // pin to time square
         pin2.coordinate = CLLocationCoordinate2DMake(38.897641, -77.036549)  // pin to white house
-        pin0.title = "My home"
+        pin0.title = "North College Terrace"
         pin1.title = "Time Square"
         pin2.title = "White House"
-        mapView.addAnnotation(pin0)
-        mapView.addAnnotation(pin1)
-        mapView.addAnnotation(pin2)
         
         //my pin function process the pinindex and showsuserLocation to determin what to set the current location
         pinindex = (pinindex + 1) % 4 //cycle throught 0-4
         locButtonClickIndex = 0
-        if pinindex == 0{
+        if pinindex == 1{
             let thisRegion = MKCoordinateRegionMake(pin0.coordinate, span)
             mapView.setCenter(pin0.coordinate, animated: true)
             mapView.setRegion(thisRegion, animated: true)
         }
-        else if pinindex == 1{
+        else if pinindex == 2{
             let thisRegion = MKCoordinateRegionMake(pin1.coordinate, span)
             mapView.setCenter(pin1.coordinate, animated: true)
             mapView.setRegion(thisRegion, animated: true)
         }
-        else if pinindex == 2{
+        else if pinindex == 3{
             let thisRegion = MKCoordinateRegionMake(pin2.coordinate, span)
             mapView.setCenter(pin2.coordinate, animated: true)
             mapView.setRegion(thisRegion, animated: true)
         }
         else{
-            
+            goDefaultLocation()
         }
         
         
@@ -226,7 +228,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        //locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         
