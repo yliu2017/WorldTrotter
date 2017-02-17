@@ -68,23 +68,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         topConstraint.isActive = true
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
-        
-        
-        //load pins
-        let pin0 = MKPointAnnotation()
-        let pin1 = MKPointAnnotation()
-        let pin2 = MKPointAnnotation()
-        pin0.coordinate = CLLocationCoordinate2DMake(39.916553,116.252220)  // pin to my born place
-        pin1.coordinate = CLLocationCoordinate2DMake(35.986636, -80.003877)  // pin to my dorm
-        pin2.coordinate = CLLocationCoordinate2DMake(38.897641, -77.036549)  // pin to white house
-        pin0.title = "HangTian Hospital,HaiDian,Beijing,China"
-        pin1.title = "North College Terrace,High Point,NC"
-        pin2.title = "White House,DC"
-        mapView.addAnnotation(pin0)
-        mapView.addAnnotation(pin1)
-        mapView.addAnnotation(pin2)
-
-        
+ 
     }
     
     
@@ -163,37 +147,53 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locButtonClickIndex += 1
         
     }
-    var pinindex: Int = 0
-    func showPins(sender: UIButton!){
-        
         let pin0 = MKPointAnnotation()
         let pin1 = MKPointAnnotation()
         let pin2 = MKPointAnnotation()
+    
+    
+    var pinindex: Int = 0
+    func showPins(sender: UIButton!){
         pin0.coordinate = CLLocationCoordinate2DMake(39.916553,116.252220)  // pin to my born place
         pin1.coordinate = CLLocationCoordinate2DMake(35.986636, -80.003877)  // pin to my dorm
         pin2.coordinate = CLLocationCoordinate2DMake(38.897641, -77.036549)  // pin to white house
         pin0.title = "HangTian Hospital,HaiDian,Beijing,China"
         pin1.title = "North College Terrace,High Point,NC"
         pin2.title = "White House,DC"
+    
+        
         //my pin function process the pinindex and showsuserLocation to determin what to set the current location
         pinindex = (pinindex + 1) % 4 //cycle throught 0-4
         locButtonClickIndex = 0
         if pinindex == 1{
-            let thisRegion = MKCoordinateRegionMake(pin0.coordinate, span)
+            //let thisRegion = MKCoordinateRegionMake(pin0.coordinate, span)
             mapView.setCenter(pin0.coordinate, animated: true)
-            mapView.setRegion(thisRegion, animated: true)
+            //mapView.setRegion(thisRegion, animated: true)
+            mapView.addAnnotation(pin0)
+            mapView.removeAnnotation(pin1)
+            mapView.removeAnnotation(pin2)
         }
         else if pinindex == 2{
-            let thisRegion = MKCoordinateRegionMake(pin1.coordinate, span)
+            //let thisRegion = MKCoordinateRegionMake(pin1.coordinate, span)
             mapView.setCenter(pin1.coordinate, animated: true)
-            mapView.setRegion(thisRegion, animated: true)
+            //mapView.setRegion(thisRegion, animated: true)
+            mapView.addAnnotation(pin1)
+            mapView.removeAnnotation(pin0)
+            mapView.removeAnnotation(pin2)
         }
         else if pinindex == 3{
-            let thisRegion = MKCoordinateRegionMake(pin2.coordinate, span)
+           // let thisRegion = MKCoordinateRegionMake(pin2.coordinate, span)
             mapView.setCenter(pin2.coordinate, animated: true)
-            mapView.setRegion(thisRegion, animated: true)
+          //  mapView.setRegion(thisRegion, animated: true)
+            mapView.addAnnotation(pin2)
+            mapView.removeAnnotation(pin0)
+            mapView.removeAnnotation(pin1)
         }
         else{
+            //remove the pins and go to default location
+            mapView.removeAnnotation(pin0)
+            mapView.removeAnnotation(pin1)
+            mapView.removeAnnotation(pin2)
             goDefaultLocation()
         }
         
@@ -243,10 +243,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         defaultSpan = mapView.region.span
-        defaultLoc = mapView.region.center
-        print("Center Changed, Span Changed. Default Setting Saved.")
+        let latitude = mapView.region.center.latitude
+        let longitude = mapView.region.center.longitude
+        if !(latitude == pin0.coordinate.latitude||latitude == pin1.coordinate.latitude||latitude == pin1.coordinate.latitude){
+            if !(longitude == pin0.coordinate.longitude||longitude == pin1.coordinate.longitude||longitude == pin1.coordinate.longitude){
+                defaultLoc = mapView.region.center
+                print("New default setting assigned.")
+            }
+        }
+        print("regionDidChangeAnimated called")
     }
     
     
