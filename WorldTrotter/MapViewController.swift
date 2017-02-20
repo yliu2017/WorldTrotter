@@ -73,9 +73,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
  
     }
     
-    
-    //self.mapView.userLocation(sender: click(hybrid))
-    //mpView.showUserLocation = true
 
     //initialize the my location Button
     func initLocalizationButton(_ anyView: UIView!){
@@ -168,25 +165,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         pinindex = (pinindex + 1) % 4 //cycle throught 0-4
         locButtonClickIndex = 0
         if pinindex == 1{
-            //let thisRegion = MKCoordinateRegionMake(pin0.coordinate, span)
             mapView.setCenter(pin0.coordinate, animated: true)
-            //mapView.setRegion(thisRegion, animated: true)
             mapView.addAnnotation(pin0)
             mapView.removeAnnotation(pin1)
             mapView.removeAnnotation(pin2)
         }
         else if pinindex == 2{
-            //let thisRegion = MKCoordinateRegionMake(pin1.coordinate, span)
+    
             mapView.setCenter(pin1.coordinate, animated: true)
-            //mapView.setRegion(thisRegion, animated: true)
             mapView.addAnnotation(pin1)
             mapView.removeAnnotation(pin0)
             mapView.removeAnnotation(pin2)
         }
         else if pinindex == 3{
-           // let thisRegion = MKCoordinateRegionMake(pin2.coordinate, span)
             mapView.setCenter(pin2.coordinate, animated: true)
-          //  mapView.setRegion(thisRegion, animated: true)
             mapView.addAnnotation(pin2)
             mapView.removeAnnotation(pin0)
             mapView.removeAnnotation(pin1)
@@ -246,14 +238,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        defaultSpan = mapView.region.span
         let latitude = mapView.region.center.latitude
         let longitude = mapView.region.center.longitude
-        if !(latitude == pin0.coordinate.latitude||latitude == pin1.coordinate.latitude||latitude == pin1.coordinate.latitude){
-            if !(longitude == pin0.coordinate.longitude||longitude == pin1.coordinate.longitude||longitude == pin1.coordinate.longitude){
-                defaultLoc = mapView.region.center
-                print("New default setting assigned.")
+        if (latitude == pin0.coordinate.latitude||latitude == pin1.coordinate.latitude||latitude == pin1.coordinate.latitude){
+            if (longitude == pin0.coordinate.longitude||longitude == pin1.coordinate.longitude||longitude == pin1.coordinate.longitude){
             }
+        }else{  //excute when the center is not in pin locations
+            defaultSpan = mapView.region.span
+            defaultLoc = mapView.region.center
+            print("New default setting assigned.")
         }
         print("regionDidChangeAnimated called")
     }

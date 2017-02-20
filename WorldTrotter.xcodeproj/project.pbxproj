@@ -24,6 +24,7 @@
 		534349351E5B25450060E6AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		5343493B1E5B265D0060E6AD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		5343493C1E5B4EF30060E6AD /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		5343493E1E5B53970060E6AD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		537002901E3FDC0200995EE0 /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		537002931E3FDC0200995EE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		537002981E3FDC0200995EE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,6 +177,7 @@
 				537002981E3FDC0200995EE0 /* Base */,
 				534349351E5B25450060E6AD /* en */,
 				5343493B1E5B265D0060E6AD /* es */,
+				5343493E1E5B53970060E6AD /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

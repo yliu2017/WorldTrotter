@@ -1,24 +1,24 @@
 
 /* Class = "UILabel"; text = "degrees Celsius"; ObjectID = "1h2-hJ-ecj"; */
-"1h2-hJ-ecj.text" = "grados Celsius";
+"1h2-hJ-ecj.text" = "摄氏度";
 
 /* Class = "UILabel"; text = "is really"; ObjectID = "4UI-Ca-iKH"; */
-"4UI-Ca-iKH.text" = "es realmante";
+"4UI-Ca-iKH.text" = "是";
 
 /* Class = "UITabBarItem"; title = "Convert"; ObjectID = "6ar-Eb-fza"; */
-"6ar-Eb-fza.title" = "Convertir";
+"6ar-Eb-fza.title" = "转换";
 
 /* Class = "UITabBarItem"; title = "Web"; ObjectID = "DqD-Cu-LBu"; */
-"DqD-Cu-LBu.title" = "Web";
+"DqD-Cu-LBu.title" = "网页";
 
 /* Class = "UITextField"; placeholder = "value"; ObjectID = "EhO-Dk-RuL"; */
-"EhO-Dk-RuL.placeholder" = "valor";
+"EhO-Dk-RuL.placeholder" = "值";
 
 /* Class = "UITabBarItem"; title = "Map"; ObjectID = "JbI-za-ZET"; */
-"JbI-za-ZET.title" = "Mapa";
+"JbI-za-ZET.title" = "地图";
 
 /* Class = "UILabel"; text = "100"; ObjectID = "egG-vK-DmQ"; */
 "egG-vK-DmQ.text" = "100";
 
 /* Class = "UILabel"; text = "degrees Fahrenheit"; ObjectID = "xWj-dF-brU"; */
-"xWj-dF-brU.text" = "grados Fahrenheit";
+"xWj-dF-brU.text" = "华氏度";
