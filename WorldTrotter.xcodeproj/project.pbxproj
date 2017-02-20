@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		53191F881E4A5653007E8D57 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53191F871E4A5653007E8D57 /* MapKit.framework */; };
 		53191F8A1E4B4D1B007E8D57 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53191F891E4B4D1B007E8D57 /* MapViewController.swift */; };
+		5343493D1E5B4EF30060E6AD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5343493C1E5B4EF30060E6AD /* Localizable.strings */; };
 		537002941E3FDC0200995EE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537002931E3FDC0200995EE0 /* AppDelegate.swift */; };
 		537002991E3FDC0200995EE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537002971E3FDC0200995EE0 /* Main.storyboard */; };
 		5370029B1E3FDC0200995EE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5370029A1E3FDC0200995EE0 /* Assets.xcassets */; };
@@ -20,6 +21,9 @@
 /* Begin PBXFileReference section */
 		53191F871E4A5653007E8D57 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		53191F891E4B4D1B007E8D57 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		534349351E5B25450060E6AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		5343493B1E5B265D0060E6AD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		5343493C1E5B4EF30060E6AD /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		537002901E3FDC0200995EE0 /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		537002931E3FDC0200995EE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		537002981E3FDC0200995EE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 				5370029F1E3FDC0200995EE0 /* Info.plist */,
 				53191F891E4B4D1B007E8D57 /* MapViewController.swift */,
 				53F96B4E1E4B99E40053621B /* WebViewConroller.swift */,
+				5343493C1E5B4EF30060E6AD /* Localizable.strings */,
 			);
 			path = WorldTrotter;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5370029E1E3FDC0200995EE0 /* LaunchScreen.storyboard in Resources */,
+				5343493D1E5B4EF30060E6AD /* Localizable.strings in Resources */,
 				5370029B1E3FDC0200995EE0 /* Assets.xcassets in Resources */,
 				537002991E3FDC0200995EE0 /* Main.storyboard in Resources */,
 			);
@@ -168,6 +174,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				537002981E3FDC0200995EE0 /* Base */,
+				534349351E5B25450060E6AD /* en */,
+				5343493B1E5B265D0060E6AD /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -187,6 +195,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -237,6 +246,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
